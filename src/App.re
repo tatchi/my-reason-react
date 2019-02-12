@@ -8,7 +8,8 @@ let data = {| {
   "age":   14
 } |};
 
-let res: User.user =
+
+let res =
   data
   |> Json.parseOrRaise
   |> (
@@ -18,6 +19,7 @@ let res: User.user =
         User.age: json |> field("age", optional(int)),
       }
   );
+
 
 Js.log(switch res {
 | {age: None} => "empty"
